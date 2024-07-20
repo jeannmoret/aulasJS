@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #area {
+        font: normal 15px arial;
+        background: green;
+        color: aliceblue;
+        width: 200px;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="area">Interaja</div>
+  </body>
+
+  <script>
+    var a = document.getElementById("area");
+    a.addEventListener("click", clicar);
+    a.addEventListener("mouseenter", entrar);
+    a.addEventListener("mouseout", sair);
+
+    function clicar() {
+      a.innerHTML = "Clicou";
+      a.style.background = "red";
+    }
+
+    function entrar() {
+      a.innerHTML = "entrou";
+    }
+
+    function sair() {
+      a.innerHTML = "saiu";
+      a.style.background = "green";
+
+      setTimeout(function () {
+        if (a.innerHTML !== "entrou") a.innerHTML = "Interaja";
+        a.style.background = ""; // Volta ao estilo original (ou define um novo estilo)
+      }, 800); // 1000 milissegundos = 1 segundo
+    }
+  </script>
+</html>
